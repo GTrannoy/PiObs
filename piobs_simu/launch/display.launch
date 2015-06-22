@@ -1,0 +1,26 @@
+<launch>
+  <arg
+    name="model" />
+  <arg
+    name="gui"
+    default="False" />
+  <param
+    name="robot_description"
+    textfile="$(find piobs_simu)/robots/PIOBS_2.URDF" />
+  <param
+    name="use_gui"
+    value="$(arg gui)" />
+  <node
+    name="robot_state_publisher"
+    pkg="robot_state_publisher"
+    type="state_publisher" />
+  <node
+    name="Dependent_Joint_State_Publisher"
+    pkg="piobs_simu"
+    type="Dependent_Joint_State_Publisher.py" />
+  <node
+    name="rviz"
+    pkg="rviz"
+    type="rviz"
+    args="-d $(find piobs_simu)/urdf.rviz" />
+</launch>

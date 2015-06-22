@@ -1,0 +1,6 @@
+<package>
+  <description brief="PIOBS_2">PIOBS_2</description>
+  <depend package="gazebo" />
+  <author>me</author>
+  <license>BSD</license>
+</package>

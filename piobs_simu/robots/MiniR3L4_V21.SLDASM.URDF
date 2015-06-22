@@ -1,0 +1,871 @@
+<robot
+  name="testbot_description">
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="0.0050819 -0.011775 0.024503"
+        rpy="0 0 0" />
+      <mass
+        value="0.016525" />
+      <inertia
+        ixx="8.7673E-06"
+        ixy="-6.5661E-08"
+        ixz="6.5595E-08"
+        iyy="9.1975E-06"
+        iyz="5.7241E-08"
+        izz="1.6714E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://testbot_description/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://testbot_description/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="leg1">
+    <inertial>
+      <origin
+        xyz="0.0039961 -0.011601 0.0093749"
+        rpy="0 0 0" />
+      <mass
+        value="0.0034859" />
+      <inertia
+        ixx="5.5223E-07"
+        ixy="-7.8541E-08"
+        ixz="-8.3785E-10"
+        iyy="4.2147E-07"
+        iyz="-1.3387E-07"
+        izz="7.1941E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://testbot_description/meshes/leg1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://testbot_description/meshes/leg1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_leg1"
+    type="continuous">
+    <origin
+      xyz="0.051723 -0.039526 0.016235"
+      rpy="-1.5817 0.0035857 2.6455" />
+    <parent
+      link="base_link" />
+    <child
+      link="leg1" />
+    <axis
+      xyz="0 -1 0" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+    <calibration
+      rising="0"
+      falling="0" />
+    <dynamics
+      damping="0"
+      friction="0" />
+    <safety_controller
+      soft_upper="0"
+      soft_lower="0"
+      k_position="0"
+      k_velocity="0" />
+  </joint>
+  <link
+    name="inter1">
+    <inertial>
+      <origin
+        xyz="-0.002029 -0.0028515 0.0016481"
+        rpy="0 0 0" />
+      <mass
+        value="0.0011885" />
+      <inertia
+        ixx="1.762E-08"
+        ixy="-4.4771E-09"
+        ixz="-1.2635E-09"
+        iyy="1.4203E-07"
+        iyz="9.06E-12"
+        izz="1.5743E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://testbot_description/meshes/inter1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://testbot_description/meshes/inter1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_inter1"
+    type="continuous">
+    <origin
+      xyz="-0.019682 -0.0039741 0.0209"
+      rpy="-3.1416 2.7756E-16 -2.4963" />
+    <parent
+      link="leg1" />
+    <child
+      link="inter1" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+    <calibration
+      rising="0"
+      falling="0" />
+    <dynamics
+      damping="0"
+      friction="0" />
+    <safety_controller
+      soft_upper="0"
+      soft_lower="0"
+      k_position="0"
+      k_velocity="0" />
+  </joint>
+  <link
+    name="foot1">
+    <inertial>
+      <origin
+        xyz="-0.0082707 0.0068402 5.9764E-05"
+        rpy="0 0 0" />
+      <mass
+        value="0.0034986" />
+      <inertia
+        ixx="2.1844E-06"
+        ixy="-6.9679E-08"
+        ixz="8.4186E-10"
+        iyy="5.0681E-08"
+        iyz="2.5688E-08"
+        izz="2.2136E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://testbot_description/meshes/foot1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.75294 0 0 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://testbot_description/meshes/foot1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_foot1"
+    type="continuous">
+    <origin
+      xyz="0.0089892 -0.0039966 -0.0015"
+      rpy="3.5388E-16 -4.4409E-16 -2.6526" />
+    <parent
+      link="inter1" />
+    <child
+      link="foot1" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+    <calibration
+      rising="0"
+      falling="0" />
+    <dynamics
+      damping="0"
+      friction="0" />
+    <safety_controller
+      soft_upper="0"
+      soft_lower="0"
+      k_position="0"
+      k_velocity="0" />
+  </joint>
+  <link
+    name="leg2">
+    <inertial>
+      <origin
+        xyz="0.0039961 -0.011601 0.0093749"
+        rpy="0 0 0" />
+      <mass
+        value="0.0034859" />
+      <inertia
+        ixx="5.5223E-07"
+        ixy="-7.8541E-08"
+        ixz="-8.3785E-10"
+        iyy="4.2147E-07"
+        iyz="-1.3387E-07"
+        izz="7.1941E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://testbot_description/meshes/leg2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://testbot_description/meshes/leg2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_leg2"
+    type="continuous">
+    <origin
+      xyz="0.048365 0.029525 0.016751"
+      rpy="-1.5741 0.010991 -2.6778" />
+    <parent
+      link="base_link" />
+    <child
+      link="leg2" />
+    <axis
+      xyz="0 -1 0" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+    <calibration
+      rising="0"
+      falling="0" />
+    <dynamics
+      damping="0"
+      friction="0" />
+    <safety_controller
+      soft_upper="0"
+      soft_lower="0"
+      k_position="0"
+      k_velocity="0" />
+  </joint>
+  <link
+    name="inter2">
+    <inertial>
+      <origin
+        xyz="-0.00202895714846134 -0.00285145309648363 0.0016481260513094"
+        rpy="0 0 0" />
+      <mass
+        value="0.00118851581612338" />
+      <inertia
+        ixx="1.76196473545255E-08"
+        ixy="-4.47705576786832E-09"
+        ixz="-1.26347991827644E-09"
+        iyy="1.42034870049272E-07"
+        iyz="9.05998278774661E-12"
+        izz="1.57433962070731E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://testbot_description/meshes/inter2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://testbot_description/meshes/inter2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_inter2"
+    type="continuous">
+    <origin
+      xyz="-0.022767 0.0031869 0.0209"
+      rpy="-3.1416 1.1102E-15 -2.9733" />
+    <parent
+      link="leg2" />
+    <child
+      link="inter2" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+    <calibration
+      rising="0"
+      falling="0" />
+    <dynamics
+      damping="0"
+      friction="0" />
+    <safety_controller
+      soft_upper="0"
+      soft_lower="0"
+      k_position="0"
+      k_velocity="0" />
+  </joint>
+  <link
+    name="foot2">
+    <inertial>
+      <origin
+        xyz="-0.00827068108387584 0.00684016990167971 5.97642487052442E-05"
+        rpy="0 0 0" />
+      <mass
+        value="0.00349858320991199" />
+      <inertia
+        ixx="2.1844188668135E-06"
+        ixy="-6.96791213380382E-08"
+        ixz="8.41879629030529E-10"
+        iyy="5.06812789238341E-08"
+        iyz="2.56884338613931E-08"
+        izz="2.21364663791557E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://testbot_description/meshes/foot2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0 0 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://testbot_description/meshes/foot2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_foot2"
+    type="continuous">
+    <origin
+      xyz="0.0081581 -0.0016726 -0.0015"
+      rpy="5.8981E-16 -4.996E-16 -2.9437" />
+    <parent
+      link="inter2" />
+    <child
+      link="foot2" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+    <calibration
+      rising="0"
+      falling="0" />
+    <dynamics
+      damping="0"
+      friction="0" />
+    <safety_controller
+      soft_upper="0"
+      soft_lower="0"
+      k_position="0"
+      k_velocity="0" />
+  </joint>
+  <link
+    name="leg3">
+    <inertial>
+      <origin
+        xyz="0.0039961 -0.011601 -0.0093749"
+        rpy="0 0 0" />
+      <mass
+        value="0.0034859" />
+      <inertia
+        ixx="5.5223E-07"
+        ixy="-7.8541E-08"
+        ixz="8.3785E-10"
+        iyy="4.2147E-07"
+        iyz="1.3387E-07"
+        izz="7.1941E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://testbot_description/meshes/leg3.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://testbot_description/meshes/leg3.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_leg3"
+    type="continuous">
+    <origin
+      xyz="-0.024257 0.040283 0.01623"
+      rpy="-1.5593 -0.00064058 -0.7579" />
+    <parent
+      link="base_link" />
+    <child
+      link="leg3" />
+    <axis
+      xyz="0 -1 0" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+    <calibration
+      rising="0"
+      falling="0" />
+    <dynamics
+      damping="0"
+      friction="0" />
+    <safety_controller
+      soft_upper="0"
+      soft_lower="0"
+      k_position="0"
+      k_velocity="0" />
+  </joint>
+  <link
+    name="inter3">
+    <inertial>
+      <origin
+        xyz="-0.00202895714846123 -0.00285145309648363 0.00135187394869059"
+        rpy="0 0 0" />
+      <mass
+        value="0.00118851581612339" />
+      <inertia
+        ixx="1.76196473545257E-08"
+        ixy="-4.47705576786822E-09"
+        ixz="1.26347991827652E-09"
+        iyy="1.42034870049274E-07"
+        iyz="-9.05998278775571E-12"
+        izz="1.57433962070733E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://testbot_description/meshes/inter3.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://testbot_description/meshes/inter3.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_inter3"
+    type="continuous">
+    <origin
+      xyz="-0.022767 0.0031869 -0.0179"
+      rpy="3.1416 2.2204E-16 -2.9733" />
+    <parent
+      link="leg3" />
+    <child
+      link="inter3" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+    <calibration
+      rising="0"
+      falling="0" />
+    <dynamics
+      damping="0"
+      friction="0" />
+    <safety_controller
+      soft_upper="0"
+      soft_lower="0"
+      k_position="0"
+      k_velocity="0" />
+  </joint>
+  <link
+    name="foot3">
+    <inertial>
+      <origin
+        xyz="-0.00826776300884188 0.0068030157783804 -5.9706453980693E-05"
+        rpy="0 0 0" />
+      <mass
+        value="0.00350190561922318" />
+      <inertia
+        ixx="2.18952314619526E-06"
+        ixy="-7.0071688203397E-08"
+        ixz="-8.41249658549248E-10"
+        iyy="5.07504738873376E-08"
+        iyz="-2.56962524362102E-08"
+        izz="2.21881508857866E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://testbot_description/meshes/foot3.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0 0 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://testbot_description/meshes/foot3.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_foot3"
+    type="continuous">
+    <origin
+      xyz="0.0081581 -0.0016726 0.0045"
+      rpy="-5.0134E-16 -8.8818E-16 -2.9437" />
+    <parent
+      link="inter3" />
+    <child
+      link="foot3" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+    <calibration
+      rising="0"
+      falling="0" />
+    <dynamics
+      damping="0"
+      friction="0" />
+    <safety_controller
+      soft_upper="0"
+      soft_lower="0"
+      k_position="0"
+      k_velocity="0" />
+  </joint>
+  <link
+    name="leg4">
+    <inertial>
+      <origin
+        xyz="0.0050819 -0.011775 0.024503"
+        rpy="0 0 0" />
+      <mass
+        value="0.016525" />
+      <inertia
+        ixx="8.7673E-06"
+        ixy="-6.5661E-08"
+        ixz="6.5595E-08"
+        iyy="9.1975E-06"
+        iyz="5.7241E-08"
+        izz="1.6714E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://testbot_description/meshes/leg4.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://testbot_description/meshes/leg4.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_leg4"
+    type="continuous">
+    <origin
+      xyz="-0.048095 -0.029378 0.015482"
+      rpy="-1.5665 -0.01066 0.37655" />
+    <parent
+      link="base_link" />
+    <child
+      link="leg4" />
+    <axis
+      xyz="0 -1 0" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+    <calibration
+      rising="0"
+      falling="0" />
+    <dynamics
+      damping="0"
+      friction="0" />
+    <safety_controller
+      soft_upper="0"
+      soft_lower="0"
+      k_position="0"
+      k_velocity="0" />
+  </joint>
+  <link
+    name="inter4">
+    <inertial>
+      <origin
+        xyz="-0.00202895714846124 -0.00285145309648363 0.00135187394869059"
+        rpy="0 0 0" />
+      <mass
+        value="0.00118851581612339" />
+      <inertia
+        ixx="1.76196473545257E-08"
+        ixy="-4.47705576786828E-09"
+        ixz="1.26347991827648E-09"
+        iyy="1.42034870049274E-07"
+        iyz="-9.05998278775653E-12"
+        izz="1.57433962070733E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://testbot_description/meshes/inter4.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://testbot_description/meshes/inter4.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_inter4"
+    type="continuous">
+    <origin
+      xyz="-0.022767 0.0031869 -0.0179"
+      rpy="-3.1416 -2.2204E-16 -2.9733" />
+    <parent
+      link="leg4" />
+    <child
+      link="inter4" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+    <calibration
+      rising="0"
+      falling="0" />
+    <dynamics
+      damping="0"
+      friction="0" />
+    <safety_controller
+      soft_upper="0"
+      soft_lower="0"
+      k_position="0"
+      k_velocity="0" />
+  </joint>
+  <link
+    name="foot4">
+    <inertial>
+      <origin
+        xyz="-0.00826776236258694 0.00680301195375937 -5.9706392348445E-05"
+        rpy="0 0 0" />
+      <mass
+        value="0.00350190679911133" />
+      <inertia
+        ixx="2.18952399720536E-06"
+        ixy="-7.00717649390305E-08"
+        ixz="-8.41247035972348E-10"
+        iyy="5.07504801035041E-08"
+        iyz="-2.56962632738416E-08"
+        izz="2.21881594891512E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://testbot_description/meshes/foot4.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0 0 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://testbot_description/meshes/foot4.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_foot4"
+    type="continuous">
+    <origin
+      xyz="0.0081581 -0.0016726 0.0045"
+      rpy="1.6306E-16 1.6653E-16 -2.9437" />
+    <parent
+      link="inter4" />
+    <child
+      link="foot4" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+    <calibration
+      rising="0"
+      falling="0" />
+    <dynamics
+      damping="0"
+      friction="0" />
+    <safety_controller
+      soft_upper="0"
+      soft_lower="0"
+      k_position="0"
+      k_velocity="0" />
+  </joint>
+</robot>

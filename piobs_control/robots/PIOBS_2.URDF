@@ -1,0 +1,1024 @@
+<robot
+  name="testbot_description">
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="-0.00015018 1.6912E-05 0.0072327"
+        rpy="0 0 0" />
+      <mass
+        value="0.073886" />
+      <inertia
+        ixx="8.5546E-05"
+        ixy="-1.066E-07"
+        ixz="-8.6746E-07"
+        iyy="8.1836E-05"
+        iyz="3.9685E-08"
+        izz="0.00010542" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://testbot_description/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://testbot_description/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="art1">
+    <inertial>
+      <origin
+        xyz="0.0062378 0.02771 -0.015634"
+        rpy="0 0 0" />
+      <mass
+        value="0.010814" />
+      <inertia
+        ixx="2.0057E-06"
+        ixy="-1.7079E-07"
+        ixz="1.399E-07"
+        iyy="1.6131E-06"
+        iyz="-5.1092E-07"
+        izz="1.3978E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://testbot_description/meshes/art1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://testbot_description/meshes/art1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Joint_art1"
+    type="revolute">
+    <origin
+      xyz="0.023258 0.023889 0.0158"
+      rpy="-1.9342E-16 2.949E-17 -6.0231E-15" />
+    <parent
+      link="base_link" />
+    <child
+      link="art1" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-1.57"
+      upper="1.57"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="inter1">
+    <inertial>
+      <origin
+        xyz="0.0070896075439685 0.0102538921860843 0.00479586381143902"
+        rpy="0 0 0" />
+      <mass
+        value="0.00135978929409287" />
+      <inertia
+        ixx="1.37387036132839E-07"
+        ixy="6.95998230365082E-08"
+        ixz="1.74141616042859E-08"
+        iyy="7.06042780982557E-08"
+        iyz="2.65906919170599E-08"
+        izz="1.58701960368231E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://testbot_description/meshes/inter1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://testbot_description/meshes/inter1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Joint_inter1"
+    type="revolute">
+    <origin
+      xyz="0.021377 0.022876 -0.02515"
+      rpy="6.9215E-16 -7.0777E-16 -2.982E-16" />
+    <parent
+      link="art1" />
+    <child
+      link="inter1" />
+    <axis
+      xyz="0.86603 -0.5 0" />
+    <limit
+      lower="-1.57"
+      upper="1.57"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="leg1">
+    <inertial>
+      <origin
+        xyz="0.0012301 -0.00074995 0.0068442"
+        rpy="0 0 0" />
+      <mass
+        value="0.0034986" />
+      <inertia
+        ixx="2.2048E-06"
+        ixy="1.5295E-08"
+        ixz="4.4118E-08"
+        iyy="2.1873E-06"
+        iyz="1.2782E-07"
+        izz="5.6682E-08" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://testbot_description/meshes/leg1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.75294 0 0 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://testbot_description/meshes/leg1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Joint_leg1"
+    type="revolute">
+    <origin
+      xyz="0.018865 0.026675 0.0055261"
+      rpy="-1.1614E-15 8.4655E-16 -2.5032E-15" />
+    <parent
+      link="inter1" />
+    <child
+      link="leg1" />
+    <axis
+      xyz="-0.86603 0.5 0" />
+    <limit
+      lower="-1.57"
+      upper="1.57"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="inter1h">
+    <inertial>
+      <origin
+        xyz="0.00899059628453 0.0125721695551459 0.0102727058673301"
+        rpy="0 0 0" />
+      <mass
+        value="0.00130705655681447" />
+      <inertia
+        ixx="1.82554735827586E-07"
+        ixy="6.67692586843107E-08"
+        ixz="4.24486016154991E-08"
+        iyy="1.05456236877629E-07"
+        iyz="7.35231347082946E-08"
+        izz="1.56157582735136E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://testbot_description/meshes/inter1h.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://testbot_description/meshes/inter1h.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Joint_inter1h"
+    type="revolute">
+    <origin
+      xyz="0.021377 0.022876 0.0018"
+      rpy="2.3939E-16 -4.6838E-17 -2.7733E-15" />
+    <parent
+      link="art1" />
+    <child
+      link="inter1h" />
+    <axis
+      xyz="0.86603 -0.5 0" />
+    <limit
+      lower="-1.57"
+      upper="1.57"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="art2">
+    <inertial>
+      <origin
+        xyz="-0.0224777663889104 0.0173642523652234 -0.0156338039059797"
+        rpy="0 0 0" />
+      <mass
+        value="0.0108144806208301" />
+      <inertia
+        ixx="1.55235820224944E-06"
+        ixy="-4.0583431878344E-08"
+        ixz="5.22174875344558E-07"
+        iyy="2.06637574050955E-06"
+        iyz="-8.91289182685682E-08"
+        izz="1.39781931097156E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://testbot_description/meshes/art2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://testbot_description/meshes/art2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Joint_art2"
+    type="revolute">
+    <origin
+      xyz="-0.023889 0.023258 0.0158"
+      rpy="1.5439E-15 1.7521E-15 -6.0631E-15" />
+    <parent
+      link="base_link" />
+    <child
+      link="art2" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-1.57"
+      upper="1.57"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="inter2">
+    <inertial>
+      <origin
+        xyz="-0.00629698276669353 0.0107588439963508 0.0047958620099706"
+        rpy="0 0 0" />
+      <mass
+        value="0.00135978987662394" />
+      <inertia
+        ixx="1.35848732305647E-07"
+        ixy="-7.03172135111144E-08"
+        ixz="-1.67398186844208E-08"
+        iyy="7.21426901214701E-08"
+        iyz="2.70203274227663E-08"
+        izz="1.58702041651389E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://testbot_description/meshes/inter2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://testbot_description/meshes/inter2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Joint_inter2"
+    type="revolute">
+    <origin
+      xyz="-0.011699 0.029042 -0.02515"
+      rpy="-2.4329E-15 -1.7451E-15 1.4339E-17" />
+    <parent
+      link="art2" />
+    <child
+      link="inter2" />
+    <axis
+      xyz="0.81915 0.57358 0" />
+    <limit
+      lower="-1.57"
+      upper="1.57"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="leg2">
+    <inertial>
+      <origin
+        xyz="0.00119952825668699 0.000797870516715468 0.00684419575680679"
+        rpy="0 0 0" />
+      <mass
+        value="0.00349858320991198" />
+      <inertia
+        ixx="2.20213224306285E-06"
+        ixy="-1.6524596040361E-08"
+        ixz="-9.71983689216688E-08"
+        iyy="2.189932337346E-06"
+        iyz="9.40034130405482E-08"
+        izz="5.66822032447966E-08" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://testbot_description/meshes/leg2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0 0 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://testbot_description/meshes/leg2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Joint_leg2"
+    type="revolute">
+    <origin
+      xyz="-0.016203 0.028371 0.0055261"
+      rpy="-1.4285E-15 -4.6838E-17 1.7541E-16" />
+    <parent
+      link="inter2" />
+    <child
+      link="leg2" />
+    <axis
+      xyz="-0.81915 -0.57358 0" />
+    <limit
+      lower="-1.57"
+      upper="1.57"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="inter2h">
+    <inertial>
+      <origin
+        xyz="-0.00759466499399354 0.0134614758664773 0.01027270586733"
+        rpy="0 0 0" />
+      <mass
+        value="0.00130705655681447" />
+      <inertia
+        ixx="1.70374726013664E-07"
+        ixy="-7.24488905369456E-08"
+        ixz="-4.86950352854073E-08"
+        iyy="1.17636246691551E-07"
+        iyz="6.95437175810895E-08"
+        izz="1.56157582735136E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://testbot_description/meshes/inter2h.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://testbot_description/meshes/inter2h.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Joint_inter2h"
+    type="revolute">
+    <origin
+      xyz="-0.011699 0.029042 0.0018"
+      rpy="-9.7058E-16 -1.7035E-15 1.3741E-15" />
+    <parent
+      link="art2" />
+    <child
+      link="inter2h" />
+    <axis
+      xyz="0.81915 0.57358 0" />
+    <limit
+      lower="-1.57"
+      upper="1.57"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="art3">
+    <inertial>
+      <origin
+        xyz="-0.0224777650381663 -0.0173642506579196 -0.0156338039185827"
+        rpy="0 0 0" />
+      <mass
+        value="0.010814480540916" />
+      <inertia
+        ixx="1.55235834142788E-06"
+        ixy="4.05832763833905E-08"
+        ixz="5.22174814196587E-07"
+        iyy="2.06637543468729E-06"
+        iyz="8.91288409759164E-08"
+        izz="1.39781914283596E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://testbot_description/meshes/art3.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://testbot_description/meshes/art3.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Joint_art3"
+    type="revolute">
+    <origin
+      xyz="-0.023889 -0.023258 0.0158"
+      rpy="3.6256E-15 3.8389E-15 -6.0501E-15" />
+    <parent
+      link="base_link" />
+    <child
+      link="art3" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-1.57"
+      upper="1.57"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="inter3">
+    <inertial>
+      <origin
+        xyz="-0.00629698406740537 -0.0107588470462518 0.00479586320266702"
+        rpy="0 0 0" />
+      <mass
+        value="0.0013597894906904" />
+      <inertia
+        ixx="1.35848678143934E-07"
+        ixy="7.03171940703192E-08"
+        ixz="-1.67398118640323E-08"
+        iyy="7.21426728321169E-08"
+        iyz="-2.702031082098E-08"
+        izz="1.58701988013687E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://testbot_description/meshes/inter3.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://testbot_description/meshes/inter3.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Joint_inter3"
+    type="revolute">
+    <origin
+      xyz="-0.011699 -0.029042 -0.02515"
+      rpy="-5.7176E-15 -9.3502E-16 -1.4961E-15" />
+    <parent
+      link="art3" />
+    <child
+      link="inter3" />
+    <axis
+      xyz="0.81915 -0.57358 0" />
+    <limit
+      lower="-1.57"
+      upper="1.57"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="leg3">
+    <inertial>
+      <origin
+        xyz="0.00120188006173176 -0.00079461255305581 0.00680714441315865"
+        rpy="0 0 0" />
+      <mass
+        value="0.00350190561922319" />
+      <inertia
+        ixx="2.20726966784865E-06"
+        ixy="1.65680442187048E-08"
+        ixz="-9.75150640560415E-08"
+        iyy="2.19503996773772E-06"
+        iyz="-9.44421078259728E-08"
+        izz="5.67790730750515E-08" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://testbot_description/meshes/leg3.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0 0 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://testbot_description/meshes/leg3.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Joint_leg3"
+    type="revolute">
+    <origin
+      xyz="-0.016203 -0.028371 0.0055261"
+      rpy="2.243E-15 -2.9022E-15 2.4621E-15" />
+    <parent
+      link="inter3" />
+    <child
+      link="leg3" />
+    <axis
+      xyz="0.81915 -0.57358 0" />
+    <limit
+      lower="-1.57"
+      upper="1.57"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="inter3h">
+    <inertial>
+      <origin
+        xyz="-0.0100521211268605 -0.011740746557424 0.0102727058673302"
+        rpy="0 0 0" />
+      <mass
+        value="0.00130705655681447" />
+      <inertia
+        ixx="1.70374726013665E-07"
+        ixy="7.24488905369444E-08"
+        ixz="-4.86950352854072E-08"
+        iyy="1.17636246691551E-07"
+        iyz="-6.95437175810902E-08"
+        izz="1.56157582735135E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://testbot_description/meshes/inter3h.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://testbot_description/meshes/inter3h.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Joint_inter3h"
+    type="revolute">
+    <origin
+      xyz="-0.0092411 -0.030763 0.0018"
+      rpy="-3.5623E-15 -3.8771E-15 -3.7513E-15" />
+    <parent
+      link="art3" />
+    <child
+      link="inter3h" />
+    <axis
+      xyz="0.81915 -0.57358 0" />
+    <limit
+      lower="-1.57"
+      upper="1.57"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="art4">
+    <inertial>
+      <origin
+        xyz="0.00133124478792325 -0.0283724322273375 -0.0156338039142436"
+        rpy="0 0 0" />
+      <mass
+        value="0.010814480720339" />
+      <inertia
+        ixx="1.93540479225721E-06"
+        ixy="2.27628752214218E-07"
+        ixz="2.26497114294371E-07"
+        iyy="1.68332900286192E-06"
+        iyz="4.78862762155125E-07"
+        izz="1.39781916118468E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://testbot_description/meshes/art4.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://testbot_description/meshes/art4.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Joint_art4"
+    type="revolute">
+    <origin
+      xyz="0.023258 -0.023889 0.0158"
+      rpy="-3.6603E-16 1.8735E-16 -6.0242E-15" />
+    <parent
+      link="base_link" />
+    <child
+      link="art4" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-1.57"
+      upper="1.57"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="inter4">
+    <inertial>
+      <origin
+        xyz="0.00520133307339482 -0.0113292134485371 0.00479586531435405"
+        rpy="0 0 0" />
+      <mass
+        value="0.00135978880892769" />
+      <inertia
+        ixx="1.59177772146419E-07"
+        ixy="-5.39818849949921E-08"
+        ixz="1.25321634990597E-08"
+        iyy="4.8813451845913E-08"
+        iyz="-2.92106381767074E-08"
+        izz="1.58701892597498E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://testbot_description/meshes/inter4.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://testbot_description/meshes/inter4.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Joint_inter4"
+    type="revolute">
+    <origin
+      xyz="0.01708 -0.026241 -0.02515"
+      rpy="3.5128E-16 -6.8001E-16 1.423E-15" />
+    <parent
+      link="art4" />
+    <child
+      link="inter4" />
+    <axis
+      xyz="0.93969 0.34202 0" />
+    <limit
+      lower="-1.57"
+      upper="1.57"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="leg4">
+    <inertial>
+      <origin
+        xyz="0.00134027833442596 0.000528752294710971 0.00680713898175628"
+        rpy="0 0 0" />
+      <mass
+        value="0.00350190729982452" />
+      <inertia
+        ixx="2.21463350757465E-06"
+        ixy="-1.14126879084125E-08"
+        ixz="2.14301342157484E-08"
+        iyy="2.18767855666172E-06"
+        iyz="-1.34049559505556E-07"
+        izz="5.67790863422902E-08" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://testbot_description/meshes/leg4.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0 0 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://testbot_description/meshes/leg4.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Joint_leg4"
+    type="revolute">
+    <origin
+      xyz="0.013946 -0.029546 0.0055261"
+      rpy="-1.0495E-15 1.0408E-15 -1.6409E-15" />
+    <parent
+      link="inter4" />
+    <child
+      link="leg4" />
+    <axis
+      xyz="0.93969 0.34202 0" />
+    <limit
+      lower="-1.57"
+      upper="1.57"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="inter4h">
+    <inertial>
+      <origin
+        xyz="0.00667087459263723 -0.0139423707110393 0.0102727058673302"
+        rpy="0 0 0" />
+      <mass
+        value="0.00130705655681447" />
+      <inertia
+        ixx="2.03066363046036E-07"
+        ixy="-4.95579598504637E-08"
+        ixz="2.90365536170153E-08"
+        iyy="8.49446096591806E-08"
+        iyz="-7.9777275401531E-08"
+        izz="1.56157582735135E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://testbot_description/meshes/inter4h.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://testbot_description/meshes/inter4h.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Joint_inter4h"
+    type="revolute">
+    <origin
+      xyz="0.01708 -0.026241 0.0018"
+      rpy="4.7271E-16 -1.7174E-16 -1.3841E-15" />
+    <parent
+      link="art4" />
+    <child
+      link="inter4h" />
+    <axis
+      xyz="0.93969 0.34202 0" />
+    <limit
+      lower="-1.57"
+      upper="1.57"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="optic">
+    <inertial>
+      <origin
+        xyz="-0.0044339 1.3021E-08 -0.00016633"
+        rpy="0 0 0" />
+      <mass
+        value="0.0030505" />
+      <inertia
+        ixx="4.6741E-07"
+        ixy="-2.726E-13"
+        ixz="3.8744E-09"
+        iyy="2.507E-07"
+        iyz="-2.8028E-12"
+        izz="2.5334E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://testbot_description/meshes/optic.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.1098 0.1098 0.1098 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://testbot_description/meshes/optic.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Joint_optic"
+    type="fixed">
+    <origin
+      xyz="0.05375 0 0.0084"
+      rpy="2.1597E-16 -5.9501E-16 -6.2407E-15" />
+    <parent
+      link="base_link" />
+    <child
+      link="optic" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+</robot>

@@ -1,0 +1,193 @@
+#!/usr/bin/env python
+
+import rospy
+import random
+import wx
+import wx.lib.newevent
+import xml.dom.minidom
+from sensor_msgs.msg import JointState
+from math import pi
+from threading import Thread
+import math
+
+
+RANGE = 10000
+
+def get_param(name, value=None):
+    private = "~%s" % name
+    if rospy.has_param(private):
+        return rospy.get_param(private)
+    elif rospy.has_param(name):
+        return rospy.get_param(name)
+    else:
+        return value
+
+class JointStatePublisher():
+    def __init__(self):
+        description = get_param('robot_description')
+        robot = xml.dom.minidom.parseString(description).getElementsByTagName('robot')[0]
+        self.free_joints = {}
+        self.joint_list = [] # for maintaining the original order of the joints
+        self.dependent_joints = get_param("dependent_joints", {})
+        use_mimic = get_param('use_mimic_tags', True)
+        use_small = get_param('use_smallest_joint_limits', True)
+
+        self.zeros = get_param("zeros")
+
+        pub_def_positions = get_param("publish_default_positions", True)
+        pub_def_vels = get_param("publish_default_velocities", False)
+        pub_def_efforts = get_param("publish_default_efforts", False)
+
+        # Find all non-fixed joints
+        for child in robot.childNodes:
+            if child.nodeType is child.TEXT_NODE:
+                continue
+            if child.localName == 'joint':
+                jtype = child.getAttribute('type')
+
+		name = child.getAttribute('name')
+                self.joint_list.append(name)
+
+                mimic_tags = child.getElementsByTagName('mimic')
+                if use_mimic and len(mimic_tags)==1:
+                    tag = mimic_tags[0]
+                    entry = {'parent': tag.getAttribute('joint')}
+                    if tag.hasAttribute('multiplier'):
+                        entry['factor'] = float(tag.getAttribute('multiplier'))
+                    if tag.hasAttribute('offset'):
+                        entry['offset'] = float(tag.getAttribute('offset'))
+
+                    self.dependent_joints[name] = entry
+                    continue
+
+                if name in self.dependent_joints:
+                    continue
+
+        source_list = get_param("source_list", [])
+        self.sources = []
+        for source in source_list:
+            self.sources.append(rospy.Subscriber(source, JointState, self.source_cb))
+
+        self.pub = rospy.Publisher('joint_states', JointState, queue_size=5)
+
+    def source_cb(self, msg):
+        for i in range(len(msg.name)):
+            name = msg.name[i]
+            if name not in self.free_joints:
+                continue
+
+            if msg.position:
+                position = msg.position[i]
+            else:
+                position = None
+            if msg.velocity:
+                velocity = msg.velocity[i]
+            else:
+                velocity = None
+            if msg.effort:
+                effort = msg.effort[i]
+            else:
+                effort = None
+
+            joint = self.free_joints[name]
+            if position is not None:
+                joint['position'] = position
+            if velocity is not None:
+                joint['velocity'] = velocity
+            if effort is not None:
+                joint['effort'] = effort
+
+
+
+    def loop(self):
+        hz = get_param("rate", 10) # 10hz
+        r = rospy.Rate(hz)
+
+        delta = get_param("delta", 0.0)
+
+        # Publish Joint States
+        while not rospy.is_shutdown():
+            msg = JointState()
+            msg.header.stamp = rospy.Time.now()
+
+            if delta > 0:
+                self.update(delta)
+
+            # Initialize msg.position, msg.velocity, and msg.effort.
+            has_position = len(self.dependent_joints.items()) > 0
+            has_velocity = False
+            has_effort = False
+            for (name,joint) in self.free_joints.items():
+                if not has_position and 'position' in joint:
+                    has_position = True
+                if not has_velocity and 'velocity' in joint:
+                    has_velocity = True
+                if not has_effort and 'effort' in joint:
+                    has_effort = True
+            num_joints = (len(self.free_joints.items()) +
+                          len(self.dependent_joints.items()))
+            if has_position:
+                msg.position = num_joints * [0.0]
+            if has_velocity:
+                msg.velocity = num_joints * [0.0]
+            if has_effort:
+                msg.effort = num_joints * [0.0]
+
+
+            for i, name in enumerate(self.joint_list):
+                msg.name.append(str(name))
+                joint = None
+
+                # Add Dependent Joint
+                if name in self.dependent_joints:
+                    param = self.dependent_joints[name]
+                    if self.dependent_joints[name]=='inter1h' or self.dependent_joints[name]=='inter2h' or self.dependent_joints[name]=='inter3h' or self.dependent_joints[name]=='inter4h':
+                        param = self.dependent_joints[name]
+                        parent = param['parent']
+                        joint = self.free_joints[parent]
+
+                        # function for dependent movment
+                        if has_position and 'position' in joint:
+                            L2 = dist_a^2+dist_b^2-2*dist_b*dist_a*cos(joint['position'])
+                            L = sqtr(L2)
+                            if joint['position']>(-pi/2):
+                                msg.position[i] = acos( (dist_a^2+L2-dist_b^2)/(2*L*dist_a) ) + acos( (dist_c^2+L2-dist_d^2)/(2*L*dist_c) )
+                            else:
+                                msg.position[i] = acos( (dist_c^2+L2-dist_d^2)/(2*L*dist_c) )
+                        if has_velocity and 'velocity' in joint:
+                            msg.velocity[i] = joint['velocity'] * factor
+                        if has_effort and 'effort' in joint:
+                           msg.effort[i] = joint['effort']
+
+            self.pub.publish(msg)
+            r.sleep()
+
+
+    def update(self, delta):
+        for name, joint in self.free_joints.iteritems():
+            forward = joint.get('forward', True)
+            if forward:
+                joint['position'] += delta
+                if joint['position'] > joint['max']:
+                    if joint.get('continuous', False):
+                        joint['position'] = joint['min']
+                    else:
+                        joint['position'] = joint['max']
+                        joint['forward'] = not forward
+            else:
+                joint['position'] -= delta
+                if joint['position'] < joint['min']:
+                    joint['position'] = joint['min']
+                    joint['forward'] = not forward
+
+if __name__ == '__main__':
+    try:
+        rospy.init_node('dep_joint_state_publisher')
+        jsp = JointStatePublisher()
+
+        jsp.loop()
+        # spin() simply keeps python from exiting until this node is stopped
+        rospy.spin()
+
+
+    except rospy.ROSInterruptException: pass

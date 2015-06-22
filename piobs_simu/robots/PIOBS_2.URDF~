@@ -1,0 +1,1032 @@
+<robot
+  name="piobs_simu">
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="-0.000150183923590687 1.69116954767376E-05 0.00723274427870838"
+        rpy="0 0 0" />
+      <mass
+        value="0.0738859694947493" />
+      <inertia
+        ixx="8.5546067944523E-05"
+        ixy="-1.06600940569947E-07"
+        ixz="-8.67458695956049E-07"
+        iyy="8.18362443634058E-05"
+        iyz="3.9684721724115E-08"
+        izz="0.00010541853902672" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://piobs_simu/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://piobs_simu/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="art1">
+    <inertial>
+      <origin
+        xyz="0.0062378411825506 0.0277102239016137 -0.0156338015463188"
+        rpy="0 0 0" />
+      <mass
+        value="0.0108144783273012" />
+      <inertia
+        ixx="2.00565738864332E-06"
+        ixy="-1.70793666387837E-07"
+        ixz="1.39902596356337E-07"
+        iyy="1.61307577755607E-06"
+        iyz="-5.1091854883014E-07"
+        izz="1.39781914495636E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://piobs_simu/meshes/art1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://piobs_simu/meshes/art1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Joint_art1"
+    type="revolute">
+    <origin
+      xyz="0.023258 0.023889 0.0158"
+      rpy="-1.9342E-16 2.949E-17 -6.0231E-15" />
+    <parent
+      link="base_link" />
+    <child
+      link="art1" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-0.3"
+      upper="1"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="inter1">
+    <inertial>
+      <origin
+        xyz="0.00740343648010013 0.0107974598495289 0.00264747782092284"
+        rpy="0 0 0" />
+      <mass
+        value="0.00135978929440388" />
+      <inertia
+        ixx="1.35503474513346E-07"
+        ixy="7.26462673606028E-08"
+        ixz="4.7797782102251E-09"
+        iyy="6.57017703631588E-08"
+        iyz="6.72775895356313E-09"
+        izz="1.65488029781927E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://piobs_simu/meshes/inter1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://piobs_simu/meshes/inter1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Joint_inter1"
+    type="revolute">
+    <origin
+      xyz="0.021377 0.022876 -0.02515"
+      rpy="6.9215E-16 -7.0777E-16 -2.982E-16" />
+    <parent
+      link="art1" />
+    <child
+      link="inter1" />
+    <axis
+      xyz="0.86603 -0.5 0" />
+    <limit
+      lower="-2.65"
+      upper="0.95"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="leg1">
+    <inertial>
+      <origin
+        xyz="0.00141462853397566 -0.000430263062171768 0.00683609703050882"
+        rpy="0 0 0" />
+      <mass
+        value="0.00349858278339964" />
+      <inertia
+        ixx="2.20085310677661E-06"
+        ixy="2.34643116992895E-08"
+        ixz="1.00887381759997E-07"
+        iyy="2.17074316536988E-06"
+        iyz="2.26080118705019E-07"
+        izz="7.71498616791453E-08" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://piobs_simu/meshes/leg1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0 0 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://piobs_simu/meshes/leg1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Joint_leg1"
+    type="revolute">
+    <origin
+      xyz="0.019098 0.027079 0"
+      rpy="-1.5552E-15 1.5821E-15 2.0714E-15" />
+    <parent
+      link="inter1" />
+    <child
+      link="leg1" />
+    <axis
+      xyz="-0.86603 0.5 0" />
+    <limit
+      lower="-1.57"
+      upper="1.57"
+      effort="0"
+      velocity="0" />
+    <mimic joint="Joint_inter1" multiplier="-1.0" offset="0.0" />
+  </joint>
+  <link
+    name="inter1h">
+    <inertial>
+      <origin
+        xyz="0.00973454261047613 0.0138607223897888 0.00758536813275736"
+        rpy="0 0 0" />
+      <mass
+        value="0.00130705655681447" />
+      <inertia
+        ixx="1.76237970120405E-07"
+        ixy="7.77102178286575E-08"
+        ixz="3.28405627718515E-08"
+        iyy="8.65059397560856E-08"
+        iyz="5.68815232700017E-08"
+        izz="1.81424645563861E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://piobs_simu/meshes/inter1h.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://piobs_simu/meshes/inter1h.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Joint_inter1h"
+    type="revolute">
+    <origin
+      xyz="0.021377 0.022876 0.0018"
+      rpy="2.3939E-16 -4.6838E-17 -2.7733E-15" />
+    <parent
+      link="art1" />
+    <child
+      link="inter1h" />
+    <axis
+      xyz="0.86603 -0.5 0" />
+    <limit
+      lower="-1.57"
+      upper="1.57"
+      effort="0"
+      velocity="0" />
+    <mimic joint="Joint_inter1" multiplier="-1.0" offset="0.0" />
+  </joint>
+  <link
+    name="art2">
+    <inertial>
+      <origin
+        xyz="-0.0224777663889105 0.0173642523652234 -0.0156338039059797"
+        rpy="0 0 0" />
+      <mass
+        value="0.0108144806208301" />
+      <inertia
+        ixx="1.55235820224944E-06"
+        ixy="-4.05834318783446E-08"
+        ixz="5.22174875344558E-07"
+        iyy="2.06637574050955E-06"
+        iyz="-8.91289182685685E-08"
+        izz="1.39781931097156E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://piobs_simu/meshes/art2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://piobs_simu/meshes/art2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Joint_art2"
+    type="revolute">
+    <origin
+      xyz="-0.023889 0.023258 0.0158"
+      rpy="1.5439E-15 1.7521E-15 -6.0631E-15" />
+    <parent
+      link="base_link" />
+    <child
+      link="art2" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-0.6"
+      upper="0.65"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="inter2">
+    <inertial>
+      <origin
+        xyz="-0.00665699240608806 0.0112729910450089 0.00264747684359977"
+        rpy="0 0 0" />
+      <mass
+        value="0.00135978987670813" />
+      <inertia
+        ixx="1.33819137121723E-07"
+        ixy="-7.34317564845056E-08"
+        ixz="-4.07740451776354E-09"
+        iyy="6.73862089395131E-08"
+        iyz="7.17523793144052E-09"
+        izz="1.65488117690615E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://piobs_simu/meshes/inter2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://piobs_simu/meshes/inter2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Joint_inter2"
+    type="revolute">
+    <origin
+      xyz="-0.011699 0.029042 -0.02515"
+      rpy="-2.4329E-15 -1.7451E-15 1.4339E-17" />
+    <parent
+      link="art2" />
+    <child
+      link="inter2" />
+    <axis
+      xyz="0.81915 0.57358 0" />
+    <limit
+      lower="-2.65"
+      upper="0.95"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="leg2">
+    <inertial>
+      <origin
+        xyz="0.000987798635406129 0.00110025176352489 0.00683609405525077"
+        rpy="0 0 0" />
+      <mass
+        value="0.00349858320009664" />
+      <inertia
+        ixx="2.19409600530062E-06"
+        ixy="-2.66153433322379E-08"
+        ixz="-1.62261332220827E-07"
+        iyy="2.17750089051935E-06"
+        iyz="1.86980606695749E-07"
+        izz="7.71498550031368E-08" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://piobs_simu/meshes/leg2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0 0 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://piobs_simu/meshes/leg2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Joint_leg2"
+    type="revolute">
+    <origin
+      xyz="-0.016471 0.028753 0"
+      rpy="4.0506E-16 -1.3531E-16 -4.0686E-16" />
+    <parent
+      link="inter2" />
+    <child
+      link="leg2" />
+    <axis
+      xyz="-0.81915 -0.57358 0" />
+    <limit
+      lower="-1.57"
+      upper="1.57"
+      effort="0"
+      velocity="0" />
+    <mimic joint="Joint_inter2" multiplier="-1.0" offset="0.0" />
+  </joint>
+  <link
+    name="inter2h">
+    <inertial>
+      <origin
+        xyz="-0.00844808515893885 0.0146802861739574 0.00758536813275734"
+        rpy="0 0 0" />
+      <mass
+        value="0.00130705655681447" />
+      <inertia
+        ixx="1.62062116824351E-07"
+        ixy="-8.4320526781489E-08"
+        ixz="-3.76731459248835E-08"
+        iyy="1.0068179305214E-07"
+        iyz="5.38028282603258E-08"
+        izz="1.81424645563861E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://piobs_simu/meshes/inter2h.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://piobs_simu/meshes/inter2h.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Joint_inter2h"
+    type="revolute">
+    <origin
+      xyz="-0.011699 0.029042 0.0018"
+      rpy="-9.7058E-16 -1.7035E-15 1.3741E-15" />
+    <parent
+      link="art2" />
+    <child
+      link="inter2h" />
+    <axis
+      xyz="0.81915 0.57358 0" />
+    <limit
+      lower="-1.57"
+      upper="1.57"
+      effort="0"
+      velocity="0" />
+      <mimic joint="Joint_inter2" multiplier="-1.0" offset="0.0" />
+  </joint>
+  <link
+    name="art3">
+    <inertial>
+      <origin
+        xyz="-0.0224777650381663 -0.0173642506579196 -0.0156338039185827"
+        rpy="0 0 0" />
+      <mass
+        value="0.010814480540916" />
+      <inertia
+        ixx="1.55235834142788E-06"
+        ixy="4.05832763833904E-08"
+        ixz="5.22174814196587E-07"
+        iyy="2.06637543468729E-06"
+        iyz="8.91288409759164E-08"
+        izz="1.39781914283596E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://piobs_simu/meshes/art3.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://piobs_simu/meshes/art3.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Joint_art3"
+    type="revolute">
+    <origin
+      xyz="-0.023889 -0.023258 0.0158"
+      rpy="3.6256E-15 3.8389E-15 -6.0501E-15" />
+    <parent
+      link="base_link" />
+    <child
+      link="art3" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-0.6"
+      upper="0.65"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="inter3">
+    <inertial>
+      <origin
+        xyz="-0.00665699379083021 -0.0112729942141482 0.00264747749005476"
+        rpy="0 0 0" />
+      <mass
+        value="0.0013597894910097" />
+      <inertia
+        ixx="1.33819084087701E-07"
+        ixy="7.34317351534421E-08"
+        ixz="-4.07740069579114E-09"
+        iyy="6.73861951808813E-08"
+        iyz="-7.17522875082714E-09"
+        izz="1.65488059681542E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://piobs_simu/meshes/inter3.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://piobs_simu/meshes/inter3.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Joint_inter3"
+    type="revolute">
+    <origin
+      xyz="-0.011699 -0.029042 -0.02515"
+      rpy="-5.7176E-15 -9.3502E-16 -1.4961E-15" />
+    <parent
+      link="art3" />
+    <child
+      link="inter3" />
+    <axis
+      xyz="-0.81915 0.57358 0" />
+    <limit
+      lower="-2.65"
+      upper="0.95"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="leg3">
+    <inertial>
+      <origin
+        xyz="0.000991293190433291 -0.00109536177534356 0.006799313222049"
+        rpy="0 0 0" />
+      <mass
+        value="0.00350190561973382" />
+      <inertia
+        ixx="2.19920911817852E-06"
+        ixy="2.66931162252511E-08"
+        ixz="-1.62729982465043E-07"
+        iyy="2.18256011627768E-06"
+        iyz="-1.87636416525044E-07"
+        izz="7.73194742404063E-08" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://piobs_simu/meshes/leg3.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0 0 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://piobs_simu/meshes/leg3.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Joint_leg3"
+    type="revolute">
+    <origin
+      xyz="-0.016471 -0.028753 0"
+      rpy="2.2586E-15 -3.4295E-15 2.3548E-15" />
+    <parent
+      link="inter3" />
+    <child
+      link="leg3" />
+    <axis
+      xyz="0.81915 -0.57358 0" />
+    <limit
+      lower="-1.57"
+      upper="1.57"
+      effort="0"
+      velocity="0" />
+    <mimic joint="Joint_inter3" multiplier="-1.0" offset="0.0" />
+  </joint>
+  <link
+    name="inter3h">
+    <inertial>
+      <origin
+        xyz="-0.0109055412918058 -0.0129595568649043 0.00758536813275726"
+        rpy="0 0 0" />
+      <mass
+        value="0.00130705655681447" />
+      <inertia
+        ixx="1.62062116824352E-07"
+        ixy="8.43205267814889E-08"
+        ixz="-3.76731459248828E-08"
+        iyy="1.00681793052138E-07"
+        iyz="-5.38028282603255E-08"
+        izz="1.81424645563862E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://piobs_simu/meshes/inter3h.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://piobs_simu/meshes/inter3h.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Joint_inter3h"
+    type="revolute">
+    <origin
+      xyz="-0.0092411 -0.030763 0.0018"
+      rpy="-3.5623E-15 -3.8771E-15 -3.7513E-15" />
+    <parent
+      link="art3" />
+    <child
+      link="inter3h" />
+    <axis
+      xyz="-0.81915 0.57358 0" />
+    <limit
+      lower="-1.57"
+      upper="1.57"
+      effort="0"
+      velocity="0" />
+      <mimic joint="Joint_inter3" multiplier="-1.0" offset="0.0" />
+  </joint>
+  <link
+    name="art4">
+    <inertial>
+      <origin
+        xyz="0.00133124478792326 -0.0283724322273375 -0.0156338039142436"
+        rpy="0 0 0" />
+      <mass
+        value="0.010814480720339" />
+      <inertia
+        ixx="1.93540479225721E-06"
+        ixy="2.27628752214218E-07"
+        ixz="2.26497114294371E-07"
+        iyy="1.68332900286192E-06"
+        iyz="4.78862762155124E-07"
+        izz="1.39781916118468E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://piobs_simu/meshes/art4.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://piobs_simu/meshes/art4.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Joint_art4"
+    type="revolute">
+    <origin
+      xyz="0.023258 -0.023889 0.0158"
+      rpy="-3.6603E-16 1.8735E-16 -6.0242E-15" />
+    <parent
+      link="base_link" />
+    <child
+      link="art4" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-0.2"
+      upper="1.15"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="inter4">
+    <inertial>
+      <origin
+        xyz="0.005416 -0.011919 0.0026475"
+        rpy="0 0 0" />
+      <mass
+        value="0.0013598" />
+      <inertia
+        ixx="1.5825E-07"
+        ixy="-5.6328E-08"
+        ixz="3.5389E-09"
+        iyy="4.296E-08"
+        iyz="-7.4555E-09"
+        izz="1.6549E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://piobs_simu/meshes/inter4.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://piobs_simu/meshes/inter4.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Joint_inter4"
+    type="revolute">
+    <origin
+      xyz="0.01708 -0.026241 -0.02515"
+      rpy="3.5128E-16 -6.8001E-16 1.423E-15" />
+    <parent
+      link="art4" />
+    <child
+      link="inter4" />
+    <axis
+      xyz="-0.93969 -0.34202 0" />
+    <limit
+      lower="-2.65"
+      upper="0.95"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="leg4">
+    <inertial>
+      <origin
+        xyz="0.0014658 0.00018375 0.0067993"
+        rpy="0 0 0" />
+      <mass
+        value="0.0035019" />
+      <inertia
+        ixx="2.2131E-06"
+        ixy="-1.6952E-08"
+        ixz="6.0365E-08"
+        iyy="2.1686E-06"
+        iyz="-2.4092E-07"
+        izz="7.732E-08" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://piobs_simu/meshes/leg4.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.75294 0 0 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://piobs_simu/meshes/leg4.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Joint_leg4"
+    type="revolute">
+    <origin
+      xyz="0.014106 -0.029984 0"
+      rpy="-1.2499E-15 8.5869E-16 -1.4731E-15" />
+    <parent
+      link="inter4" />
+    <child
+      link="leg4" />
+    <axis
+      xyz="0.93969 0.34202 0" />
+    <limit
+      lower="-1.57"
+      upper="1.57"
+      effort="0"
+      velocity="0" />
+    <mimic joint="Joint_inter4" multiplier="-1.0" offset="0.0" />
+  </joint>
+  <link
+    name="inter4h">
+    <inertial>
+      <origin
+        xyz="0.0071798 -0.015341 0.0075854"
+        rpy="0 0 0" />
+      <mass
+        value="0.0013071" />
+      <inertia
+        ixx="2.0011E-07"
+        ixy="-5.7679E-08"
+        ixz="2.2464E-08"
+        iyy="6.2633E-08"
+        iyz="-6.172E-08"
+        izz="1.8142E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://piobs_simu/meshes/inter4h.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://piobs_simu/meshes/inter4h.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Joint_inter4h"
+    type="revolute">
+    <origin
+      xyz="0.01708 -0.026241 0.0018"
+      rpy="4.7271E-16 -1.7174E-16 -1.3841E-15" />
+    <parent
+      link="art4" />
+    <child
+      link="inter4h" />
+    <axis
+      xyz="-0.93969 -0.34202 0" />
+    <limit
+      lower="-1.57"
+      upper="1.57"
+      effort="0"
+      velocity="0" />
+      <mimic joint="Joint_inter4" multiplier="-1.0" offset="0.0" />
+  </joint>
+  <link
+    name="optic">
+    <inertial>
+      <origin
+        xyz="-0.0044339 1.3021E-08 -0.00016633"
+        rpy="0 0 0" />
+      <mass
+        value="0.0030505" />
+      <inertia
+        ixx="4.6741E-07"
+        ixy="-2.726E-13"
+        ixz="3.8744E-09"
+        iyy="2.507E-07"
+        iyz="-2.8028E-12"
+        izz="2.5334E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://piobs_simu/meshes/optic.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.1098 0.1098 0.1098 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://piobs_simu/meshes/optic.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Joint_optic"
+    type="fixed">
+    <origin
+      xyz="0.05375 0 0.0084"
+      rpy="2.1597E-16 -5.9501E-16 -6.2407E-15" />
+    <parent
+      link="base_link" />
+    <child
+      link="optic" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+</robot>
